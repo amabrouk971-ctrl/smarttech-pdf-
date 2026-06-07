@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "Conversion": {
+      "title": "Conversion",
+      "description": "Represents a PDF to Word conversion session and its history.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "UID of the user who owns this conversion." },
+        "fileName": { "type": "string", "description": "Original name of the PDF file." },
+        "content": { "type": "string", "description": "The converted HTML content." },
+        "status": { "type": "string", "enum": ["draft", "completed"], "description": "Status of the project." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the conversion was performed." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last time the editor content was changed." }
+      },
+      "required": ["userId", "fileName", "content", "status", "createdAt", "updatedAt"]
+    },
+    "UserPreference": {
+      "title": "UserPreference",
+      "description": "User specific application preferences.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "maxRecentProjects": { "type": "number", "default": 10 }
+      },
+      "required": ["userId", "maxRecentProjects"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "bio": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "displayName", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "conversions/{conversionId}": {
+      "schema": "Conversion",
+      "description": "User conversions history and drafts."
+    },
+    "userPreferences/{userId}": {
+      "schema": "UserPreference",
+      "description": "User specific settings."
+    },
+    "userProfiles/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile data including bio."
+    }
+  }
+}

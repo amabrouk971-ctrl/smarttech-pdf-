@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --color-brand-primary: #007bff;
+  --color-brand-secondary: #DC3545;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900;
+  }
+
+  .tiptap h1 {
+    @apply text-4xl font-extrabold mb-8 mt-10 text-slate-900 tracking-tight leading-tight;
+  }
+  .tiptap h2 {
+    @apply text-2xl font-bold mb-5 mt-8 text-slate-800 tracking-tight;
+  }
+  .tiptap p {
+    @apply mb-5 leading-relaxed text-slate-600 text-[15px];
+  }
+  .tiptap ul {
+    @apply list-disc ml-8 mb-6 text-[15px] text-slate-600 space-y-2;
+  }
+  .tiptap ol {
+    @apply list-decimal ml-8 mb-6 text-[15px] text-slate-600 space-y-2;
+  }
+  .tiptap strong {
+    @apply font-bold text-slate-900;
+  }
+  .tiptap table {
+    @apply border-collapse table-auto w-full mb-8 border border-slate-200 rounded-2xl overflow-hidden shadow-sm;
+  }
+  .tiptap td, .tiptap th {
+    @apply border border-slate-200 p-4 text-[14px];
+  }
+  .tiptap th {
+    @apply bg-slate-50 font-extrabold text-slate-900 text-left border-b-2 border-slate-200;
+  }
+  .tiptap img {
+    @apply max-w-full h-auto rounded-2xl my-10 border border-slate-100 shadow-xl mx-auto block hover:scale-[1.02] transition-transform duration-500;
+  }
+}
+
+/* Document specific styling */
+.doc-canvas {
+  @apply w-[720px] min-h-[1018px] bg-white shadow-2xl shadow-slate-300 border border-slate-200 p-16 md:p-24 transition-all duration-300;
+}
+
+.tiptap:focus {
+  @apply outline-none;
+}
